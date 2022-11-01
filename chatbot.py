@@ -7,7 +7,10 @@ import nltk
 from nltk.stem import WordNetLemmatizer
 
 import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
+
+from TerminalInterface import TerminalInterface
+
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 from tensorflow.keras.models import load_model
 
 lemmatizer = WordNetLemmatizer()
@@ -55,9 +58,11 @@ def get_response(intents_list, intents_json):
     return result
 
 print("Bot Running!")
+cli = TerminalInterface()
 
 while True:
-    message = input("")
+    message = cli.get_input()
     ints = predict_class(message)
     res = get_response(ints, intents)
-    print(res)
+    cli.bot_response(res)
+
