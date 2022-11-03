@@ -61,7 +61,7 @@ print("Bot Running!")
 cli = TerminalInterface()
 
 while True:
-    message = cli.get_input()
+    message = cli.get_user_input()
     ints = predict_class(message)
     res = get_response(ints, intents)
     cli.bot_response(res)

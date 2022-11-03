@@ -6,4 +6,4 @@ chatbot_model.*
 .DS_Store
 .vs_code
 .idea
-
+__pycache__
