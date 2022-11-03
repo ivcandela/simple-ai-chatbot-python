@@ -37,7 +37,7 @@ def bag_of_words(sentence):
 
 def predict_class(sentence):
     bow = bag_of_words(sentence)
-    res = model.predict(np.array([bow]))[0]
+    res = model.predict(np.array([bow]), verbose = 0)[0]
     ERROR_THRESHOLD = 0.25
     results = [[i, r] for i, r in enumerate(res) if r > ERROR_THRESHOLD]
 
@@ -57,7 +57,6 @@ def get_response(intents_list, intents_json):
             break
     return result
 
-print("Bot Running!")
 cli = TerminalInterface()
 
 while True:
